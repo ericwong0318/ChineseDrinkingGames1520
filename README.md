@@ -11,7 +11,7 @@ Rule of the game 15-20
 
 Functions
 1.	When the player start the game for the first time, the app will redirct the player to do the registration first, which store player’s name, date of birth, phone number and email by using shared preferences in player's phone. Moreover, he can update his personal information in the app.
-![alt text](https://github.com/ericwong0318/Chinese-Drinking-Games-15-20/blob/master/Screenshot_2019-07-20-21-29-36.png)
+<img src="image/playerInf.png" width="100">
 
 2.	The game will show (0,0),(0,5),(5,0),(5,5) to represent player's two hands to let him to choose. Next screen will show 0,5,10,15,20 on the screen for him to guess the number.
 
