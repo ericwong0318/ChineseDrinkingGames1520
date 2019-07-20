@@ -14,6 +14,7 @@ Functions
 <img src="image/playerInf.png" width="100">
 
 2.	The game will show (0,0),(0,5),(5,0),(5,5) to represent player's two hands to let him to choose. Next screen will show 0,5,10,15,20 on the screen for him to guess the number.
+<img src="image/hand.png" width="100">
 
 3. Once he makes his guess and hands, the app will get the hands and guess (useless at this round) of your opponent from the server. On the screen, the app should show the name of your opponent, the hands of the player and corresponding opponent. The game will show the player win the game if the number on the screen is same as the player guess. Otherwise, the game will go on next round but this time he only selects his hands, i.e. (0,0),(0,5),(5,0),(5,5) and then the app will get the hands and guess of your opponent from the server again and go on. The game will go on until the number on the screen will be same as your guess or opponent's guess.
 
