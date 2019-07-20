@@ -11,17 +11,23 @@ Rule of the game 15-20
 
 Functions
 1.	When the player start the game for the first time, the app will redirct the player to do the registration first, which store player’s name, date of birth, phone number and email by using shared preferences in player's phone. Moreover, he can update his personal information in the app.
-<img src="image/playerInf.png" width="100">
+<img src="image/playerInf.png" width="100" align="middle">
 
 2.	The game will show (0,0),(0,5),(5,0),(5,5) to represent player's two hands to let him to choose. Next screen will show 0,5,10,15,20 on the screen for him to guess the number.
-<img src="image/hand.png" width="100">
+<img src="image/hand.png" width="100" align="middle">
+<img src="image/guessing.png" width="100" align="middle">
+3. Once he makes his guess and hands, the app will get the hands and guess (useless at this round) of your opponent from the server. On the screen, the app should show the name of your opponent, the hands of the player and corresponding opponent. The game will show the player win the game if the number on the screen is same as the player guess. 
+<img src="image/result.png" width="100" align="middle">
 
-3. Once he makes his guess and hands, the app will get the hands and guess (useless at this round) of your opponent from the server. On the screen, the app should show the name of your opponent, the hands of the player and corresponding opponent. The game will show the player win the game if the number on the screen is same as the player guess. Otherwise, the game will go on next round but this time he only selects his hands, i.e. (0,0),(0,5),(5,0),(5,5) and then the app will get the hands and guess of your opponent from the server again and go on. The game will go on until the number on the screen will be same as your guess or opponent's guess.
+Otherwise, the game will go on next round but this time he only selects his hands, i.e. (0,0),(0,5),(5,0),(5,5) and then the app will get the hands and guess of your opponent from the server again and go on. The game will go on until the number on the screen will be same as your guess or opponent's guess.
+
 
 4. If the game gets the winner, the player can touch a Continue button to play again or Quit button to leave it.
+<img src="image/win.png" width="100" align="middle">
 
 Statistics
 1. Show statistics of past game
+<img src="image/statistics.png" width="100" align="middle">
 
 The information of opponent will be delivery as JSON string.
 
