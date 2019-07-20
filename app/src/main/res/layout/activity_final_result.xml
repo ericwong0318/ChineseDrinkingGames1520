@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvFinalResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You Win"
+        android:textColor="@android:color/holo_orange_light"
+        android:layout_margin="50dp"
+        android:textSize="30sp"
+        android:gravity="center"/>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/ivGif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/award" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnContinue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Continue"
+            android:layout_marginRight="50dp"/>
+
+        <Button
+            android:id="@+id/btnQuit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Quit" />
+
+    </LinearLayout>
+
+</LinearLayout>

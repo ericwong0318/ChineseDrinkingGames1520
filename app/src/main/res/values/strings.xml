@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">15/20</string>
+    <integer-array name="img_id_arr">
+        <item>@drawable/hand0and0</item>
+        <item>@drawable/hand0and5</item>
+        <item>@drawable/hand5and0</item>
+        <item>@drawable/hand5and5</item>
+    </integer-array>
+    <string name="hand">Select your hand:</string>
+    <string name="guess">Select your guess:</string>
+    <string name="databaseException">No past statistics</string>
+</resources>
