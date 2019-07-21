@@ -40,7 +40,9 @@ B. Update player's information
 
 C. Statistics
 1. Show statistics of past game, which use canvas to draw chart and get data from database
-<img src="image/statistics.png" width="100" align="middle">
+<p align="center">
+ <img src="image/statistics.png" width="200">
+</p>
 
 D. Other
 The information of opponent will be delivery as JSON string.
