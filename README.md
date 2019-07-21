@@ -27,6 +27,8 @@ A. Gaming
 3. Once he makes his guess and hands, the app will get the hands and guess (useless at this round) of your opponent from the server. On the screen, the app should show the name of your opponent, the hands of the player and corresponding opponent. The game will show the player win the game if the number on the screen is same as the player guess. 
 <p align="center">
   <img src="image/result.png" width="200">
+  <img src="image/result%20(2).png" width="200">
+  <img src="image/result%20(3).png" width="200">
 </p>
 
    Otherwise, the game will go on next round but this time he only selects his hands, i.e. (0,0),(0,5),(5,0),(5,5) and then the app will get the hands and guess of your opponent from the server again and go on. The game will go on until the number on the screen will be same as your guess or opponent's guess.
