@@ -42,11 +42,14 @@ B. Update player's information
 1. The player can update his information
 
 C. Statistics
+
 1. Show statistics of past game, which use canvas to draw chart and get data from database
 <p align="center">
  <img src="image/statistics.png" width="200">
 </p>
 
 D. Other
-The information of opponent will be delivery as JSON string.
-The game log is store in local database, which in the devices.
+
+1. The information of opponent will be delivery as JSON string.
+
+2. The game log is store in local database, which in the devices.
