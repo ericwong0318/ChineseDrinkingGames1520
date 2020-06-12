@@ -57,8 +57,8 @@ public class Result extends AppCompatActivity implements View.OnClickListener {
         myTurn = getIntent().getBooleanExtra("myTurn", false);
 
         //get json and set value
-        //disable thread policy that force asy task to go online
-        //because the app have to get json from internet first, then to perform tasks
+        //disable thread policy that force AsyncTask to go online
+        //because the app have to get json from internet first, then performing tasks
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         //get json string
@@ -113,6 +113,8 @@ public class Result extends AppCompatActivity implements View.OnClickListener {
         String result = "";
         URL url = null;
         try {
+            //get JSON from the server
+            //for example {"name": "Taiman", "left": 5, "right": 5, "guess": 15}
             url = new URL("https://4qm49vppc3.execute-api.us-east-1.amazonaws.com/Prod/itp4501_api/opponent/1");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             // Make GET request
