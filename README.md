@@ -56,14 +56,18 @@ D. Other
 
 3. App permission is requested when the user starts to interact with the feature. after Android 6.0 (API level 23) update, users grant permissions when the permission is requested, not when they install the app.
 
-In ```app/src/main/AndroidManifest.xml```,
-```ruby
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  In ```app/src/main/AndroidManifest.xml```,
+  ```ruby
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  ```
+  In ```app/src/main/java/com/example/chinese_drinking_games_15_20/FinalResult.java```
+  ```ruby
+  ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+  ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
 ```
-
 4. The app should disable thread policy that force AsyncTask to go online because the app have to get JSON from internet first, then performing tasks. Otherwise the user could open value file and access the guess and the hand of the opponent.
-```ruby
-StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-StrictMode.setThreadPolicy(policy);
-```
+ ```ruby
+ StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+ StrictMode.setThreadPolicy(policy);
+ ```
