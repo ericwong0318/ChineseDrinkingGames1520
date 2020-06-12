@@ -52,4 +52,18 @@ D. Other
 
 1. The information of opponent will be delivery as JSON string.
 
-2. The game log is store in local database, which in the devices.
+2. The game log is store in local database, which means in the devices.
+
+3. App permission is requested when the user starts to interact with the feature. after Android 6.0 (API level 23) update, users grant permissions when the permission is requested, not when they install the app.
+
+In ```app/src/main/AndroidManifest.xml```,
+```ruby
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+```
+
+4. The app should disable thread policy that force AsyncTask to go online because the app have to get JSON from internet first, then performing tasks. Otherwise the user could open value file and access the guess and the hand of the opponent.
+```ruby
+StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+StrictMode.setThreadPolicy(policy);
+```
