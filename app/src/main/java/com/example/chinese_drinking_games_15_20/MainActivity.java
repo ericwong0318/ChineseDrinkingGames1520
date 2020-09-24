@@ -13,8 +13,23 @@ import android.widget.Toast;
 
 import java.io.File;
 
+/**
+ * Activity for  index layout
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btnStart, btnUpdate, btnStat;
+    /**
+     * The Btn start.
+     */
+    Button btnStart, /**
+     * The Btn update.
+     */
+    btnUpdate, /**
+     * The Btn stat.
+     */
+    btnStat;
+    /**
+     * The Intent.
+     */
     Intent intent;
 
     @Override
@@ -31,10 +46,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnStat.setOnClickListener(this);
     }
 
+    /**
+     * onClick
+     * Perform onClick actions of index page buttons, including start the game, update player's information and statistics
+     *
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         try {
             switch (v.getId()) {
+                // button that start the game
                 case R.id.btnStart:
                     //set winRound = 0 because the game is started
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
@@ -48,11 +70,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     finish();
                     break;
 
+                // update user's information
                 case R.id.btnUpdate:
                     intent = new Intent(this, UpdateInform.class);
                     startActivity(intent);
                     break;
 
+                // see the statistics of the player
                 case R.id.btnStat:
                     //open database
                     try {

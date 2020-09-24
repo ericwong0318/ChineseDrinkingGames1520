@@ -15,14 +15,39 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+/**
+ * The type Game reveal hand.
+ * The player and the opponent both reveal their hands
+ */
 public class GameRevealHand extends AppCompatActivity implements View.OnClickListener {
+    /**
+     * The M view pager.
+     */
     ViewPager mViewPager;
+    /**
+     * The M custom pager adapter.
+     */
     CustomPagerAdapter mCustomPagerAdapter;
+    /**
+     * The Btn next.
+     */
     Button btnNext;
+    /**
+     * The Intent.
+     */
     Intent intent;
+    /**
+     * The Is register.
+     */
     Boolean isRegister;
+    /**
+     * The Win round.
+     */
     int winRound;
 
+    /**
+     * The M resources.
+     */
     int[] mResources = {
             R.drawable.hand0and0,
             R.drawable.hand0and5,
@@ -45,16 +70,17 @@ public class GameRevealHand extends AppCompatActivity implements View.OnClickLis
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         //set winRound = 0 because you win the game and press btnContinue to replay but winRound is 2
         SharedPreferences.Editor editor = prefs.edit();
-        winRound = prefs.getInt("winRound",0);
+        winRound = prefs.getInt("winRound", 0);
         if (winRound >= 2) {
             editor.putInt("winRound", 0);
             editor.commit();
         }
 
-        //check user is register or not (isRegistered exists in SharedPreferences?)
-        //if can not find isRegister in SharedPreferences,
-        // means the user is not registered,
-        // the app will go to register page
+        /**
+         * Check user is register or not (isRegistered exists in SharedPreferences?)
+         * If the programme can not find isRegister in SharedPreferences, it means the user is not registered. Then, the app will go to register page.
+         */
+
         isRegister = prefs.getBoolean("isRegister", false);
         if (isRegister == false) {
             intent = new Intent(this, UpdateInform.class);
@@ -104,11 +130,25 @@ public class GameRevealHand extends AppCompatActivity implements View.OnClickLis
         finish();
     }
 
-    //adapter for pager
+    /**
+     * The type Custom pager adapter.
+     */
+//adapter for pager
     class CustomPagerAdapter extends PagerAdapter {
+        /**
+         * The M context.
+         */
         Context mContext;
+        /**
+         * The M layout inflater.
+         */
         LayoutInflater mLayoutInflater;
 
+        /**
+         * Instantiates a new Custom pager adapter.
+         *
+         * @param context the context
+         */
         public CustomPagerAdapter(Context context) {
             mContext = context;
             mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

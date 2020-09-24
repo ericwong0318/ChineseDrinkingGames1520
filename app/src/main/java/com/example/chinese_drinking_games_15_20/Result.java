@@ -23,15 +23,76 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * The type Result.
+ * This class determine the result of the game
+ */
 public class Result extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tvResult, tvName, tvFinalGuess, tvOpponentName;
-    ImageView ivLeftHand, ivRightHand, ivOpponentLeftHand, ivOpponentRightHand;
+    /**
+     * The Tv result.
+     */
+    TextView tvResult, /**
+     * The Tv name.
+     */
+    tvName, /**
+     * The Tv final guess.
+     */
+    tvFinalGuess, /**
+     * The Tv opponent name.
+     */
+    tvOpponentName;
+    /**
+     * The Iv left hand.
+     */
+    ImageView ivLeftHand, /**
+     * The Iv right hand.
+     */
+    ivRightHand, /**
+     * The Iv opponent left hand.
+     */
+    ivOpponentLeftHand, /**
+     * The Iv opponent right hand.
+     */
+    ivOpponentRightHand;
+    /**
+     * The Btn continue.
+     */
     Button btnContinue;
 
-    int winRound, leftHand, rightHand, finalGuess, opponentLeftHand, opponentRightHand;
-    String name, opponentName;
+    /**
+     * The Win round.
+     */
+    int winRound, /**
+     * The Left hand.
+     */
+    leftHand, /**
+     * The Right hand.
+     */
+    rightHand, /**
+     * The Final guess.
+     */
+    finalGuess, /**
+     * The Opponent left hand.
+     */
+    opponentLeftHand, /**
+     * The Opponent right hand.
+     */
+    opponentRightHand;
+    /**
+     * The Name.
+     */
+    String name, /**
+     * The Opponent name.
+     */
+    opponentName;
+    /**
+     * The Obj.
+     */
     JSONObject obj;
+    /**
+     * The My turn.
+     */
     Boolean myTurn;
 
     //@RequiresApi(api = Build.VERSION_CODES.O)
@@ -107,7 +168,13 @@ public class Result extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    //get opponent json string from url
+    /**
+     * Gets string from url.
+     * Get opponent's json data from server, or example {"name": "Taiman", "left": 5, "right": 5, "guess": 15}
+     *
+     * @return the string from url
+     */
+//get opponent json string from url
     public String getStringFromURL() {
         InputStream inputStream = null;
         String result = "";
@@ -141,7 +208,14 @@ public class Result extends AppCompatActivity implements View.OnClickListener {
         return result;
     }
 
-    //string converts to json and set variables
+    /**
+     * Json to variable.
+     * <p>
+     * Json data is changed to variable that can be used in the program
+     *
+     * @param result the result
+     */
+//string converts to json and set variables
     public void jsonToVariable(String result) {
         try {
             String json = result;
@@ -154,7 +228,13 @@ public class Result extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    //set finalGuess
+    /**
+     * Sets final guess.
+     *
+     * @param prefs the prefs
+     * @param obj   the obj
+     */
+//set finalGuess
     public void setFinalGuess(SharedPreferences prefs, JSONObject obj) {
         Log.d("myturn", "setFinalGuess: myturn" + myTurn);
         if (myTurn == true) {
@@ -170,7 +250,12 @@ public class Result extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    //determine win or lost
+    /**
+     * Deter win boolean.
+     * Determine who is the winner
+     * @return the boolean
+     */
+//determine win or lost
     public boolean deterWin() {
         if (finalGuess == leftHand + rightHand + opponentLeftHand + opponentRightHand) {
             return true;
@@ -179,7 +264,10 @@ public class Result extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    //get result of this turn
+    /**
+     * Result.
+     * This method shows the result of the turn.
+     */
     public void result() {
         //you guess right
         if (myTurn == true && deterWin() == true) {
@@ -199,6 +287,12 @@ public class Result extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
+    /**
+     *  Determine the turn's belonging
+     *  If the player win, the turn belong to him, otherwise it belongs to the opponent
+     *
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         Log.d("final win round", "onClick: win round " + winRound);

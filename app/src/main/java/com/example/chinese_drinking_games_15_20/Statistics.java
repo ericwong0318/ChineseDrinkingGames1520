@@ -14,6 +14,9 @@ import android.view.View;
 
 import java.io.File;
 
+/**
+ * The type Statistics.
+ */
 public class Statistics extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -27,20 +30,51 @@ public class Statistics extends AppCompatActivity implements View.OnClickListene
         finish();
     }
 
+    /**
+     * The type Panel.
+     */
     class Panel extends View {
         private Context context;
 
+        /**
+         * Instantiates a new Panel.
+         *
+         * @param context the context
+         */
         public Panel(Context context) {
             super(context);
         }
 
+        /**
+         * The Title.
+         */
         String title = "Win Rate";
+        /**
+         * The Items.
+         */
         String items[] = {"Win", "Lost"};
 
+        /**
+         * The R color.
+         */
         int rColor[] = {0xff85C1E9, 0xff2ECC71};
+        /**
+         * The Data.
+         */
         long data[] = new long[2];
-        long win, lost;
+        /**
+         * The Win.
+         */
+        long win, /**
+         * The Lost.
+         */
+        lost;
 
+        /**
+         * Draw the pie chart and bar chart of win and lost ratio. The data comes rom database
+         *
+         * @param c
+         */
         @Override
         public void onDraw(Canvas c) {
             super.onDraw(c);
@@ -56,14 +90,15 @@ public class Statistics extends AppCompatActivity implements View.OnClickListene
             //find number of records of winOrLost = 'win' and 'lost'
             win = DatabaseUtils.queryNumEntries(db, "GamesLog", "winOrLost='win'");
             lost = DatabaseUtils.queryNumEntries(db, "GamesLog", "winOrLost='lost'");
-            ///
             db.close();
             //set data of win rate chart
             data[0] = win;
             data[1] = lost;
             db.close();
 
-            // Draw pie chart of win rate
+            /**
+             *  Draw pie chart of win rate
+             */
             paint.setAntiAlias(true);
             paint.setStyle(Paint.Style.FILL);
             float startAngle = 0;
@@ -81,7 +116,9 @@ public class Statistics extends AppCompatActivity implements View.OnClickListene
                 y += 20;
             }
 
-            // Draw the title
+            /** Draw the title
+             *
+             */
             paint.setColor(Color.BLACK);
             paint.setStyle(Paint.Style.FILL);
             paint.setTextSize(70);
@@ -100,26 +137,28 @@ public class Statistics extends AppCompatActivity implements View.OnClickListene
                 y2 += 70;
             }
 
-            //draw bar chart
-            int y3 = getHeight()-80;
+            /**
+             *  Draw the bar chart of win rate
+             */
+            int y3 = getHeight() - 80;
             paint.setColor(Color.BLACK);
-            c.drawLine(20, y3-200,800,y3-200,paint);
+            c.drawLine(20, y3 - 200, 800, y3 - 200, paint);
             paint.setColor(rColor[0]);
-            int y5 = y3-200;
-            for (int i=0;i<win;i++){
-                c.drawRect(60,y5,110,y5-50,paint);
-                y5-=50;
+            int y5 = y3 - 200;
+            for (int i = 0; i < win; i++) {
+                c.drawRect(60, y5, 110, y5 - 50, paint);
+                y5 -= 50;
             }
-            c.drawText(String.valueOf(win), 50, y3-100, paint);
-            c.drawText("win", 50, y3-20, paint);
+            c.drawText(String.valueOf(win), 50, y3 - 100, paint);
+            c.drawText("win", 50, y3 - 20, paint);
             paint.setColor(rColor[1]);
-            int y4 = y3-200;
-            for (int i=0;i<lost;i++){
-                c.drawRect(510,y4,560,y4-50,paint);
-                y4-=50;
+            int y4 = y3 - 200;
+            for (int i = 0; i < lost; i++) {
+                c.drawRect(510, y4, 560, y4 - 50, paint);
+                y4 -= 50;
             }
-            c.drawText(String.valueOf(lost), 500, y3-100, paint);
-            c.drawText("lost", 500, y3-20, paint);
+            c.drawText(String.valueOf(lost), 500, y3 - 100, paint);
+            c.drawText("lost", 500, y3 - 20, paint);
         }
     }
 }
