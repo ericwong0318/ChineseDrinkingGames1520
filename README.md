@@ -15,7 +15,7 @@ Functions
 A. Gaming
 1.  When the player start the game for the first time, the app will redirct the player to do the registration first, which store player’s name, date of birth, phone number and email by using shared preferences in player's phone. Moreover, he can update his personal information in the app.
 <p align="center">
-  <img src="image/app-index.jpeg" width="200">
+  <img src="app-index.jpeg" width="200">
   <img src="image/playerInf.png" width="200">
 </p>
 
