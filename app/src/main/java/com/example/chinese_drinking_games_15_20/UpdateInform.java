@@ -18,20 +18,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-/**
- * The type Update inform.
- */
 public class UpdateInform extends AppCompatActivity implements View.OnClickListener, TextWatcher {
     private final static String MY_PREFS_NAME = "com.example.chinese_drinking_games_15_20_preferences";
-    /**
-     * The Sp.
-     */
     public SharedPreferences sp;
     private EditText name, DoB, phoneNo, email;
     private Button save, clearAll;
-    /**
-     * The My calendar.
-     */
     final Calendar myCalendar = Calendar.getInstance();
 
     @Override
@@ -67,7 +58,7 @@ public class UpdateInform extends AppCompatActivity implements View.OnClickListe
         email.addTextChangedListener(this);
 
         sp = PreferenceManager.getDefaultSharedPreferences(this);
-        //getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE);
+                //getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE);
 
         //get data
         if (sp.contains("name")) {
@@ -85,33 +76,28 @@ public class UpdateInform extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-    }
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
-    // input validation
+    //input validation
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        if (name.getText().toString().equals("")) {
+        if(name.getText().toString().equals("")){
             name.setError("Input something");
         }
-        if (DoB.getText().toString().equals("")) {
+        if(DoB.getText().toString().equals("")){
             DoB.setError("Input something");
         }
-        if (email.getText().toString().equals("")) {
+        if(email.getText().toString().equals("")){
             email.setError("Input something");
         }
-        if (phoneNo.getText().toString().equals("")) {
+        if(phoneNo.getText().toString().equals("")){
             phoneNo.setError("Input something");
         }
     }
 
     @Override
-    public void afterTextChanged(Editable s) {
-    }
+    public void afterTextChanged(Editable s) {}
 
-    /**
-     * The Date.
-     */
     DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
         @Override
@@ -146,16 +132,10 @@ public class UpdateInform extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    /**
-     * Save.
-     * This method saves data to sharedPreference
-     *
-     * @param view the view
-     */
-//save data to sharedPreference
+    //save data to sharedPreference
     public void save(View view) {
         //editText can not be null
-        if (!name.getText().toString().equals("") && !DoB.getText().toString().equals("") && !phoneNo.getText().toString().equals("") && !email.getText().toString().equals("")) {
+        if (!name.getText().toString().equals("")&&!DoB.getText().toString().equals("")&&!phoneNo.getText().toString().equals("")&&!email.getText().toString().equals("")) {
             try {
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putString("name", name.getText().toString());
@@ -166,21 +146,16 @@ public class UpdateInform extends AppCompatActivity implements View.OnClickListe
                 editor.putBoolean("isRegister", true);
                 editor.commit();
                 finish();
-            } catch (Exception e) {
-                Log.d("pref", "save: " + e);
+            } catch (Exception e){
+                Log.d("pref", "save: "+e);
             }
-        } else {
-            Toast.makeText(getApplicationContext(), "Can not save because some information is missing", Toast.LENGTH_LONG).show();
+        } else{
+            Toast.makeText(getApplicationContext(), "Can not save because some information is missing",Toast.LENGTH_LONG).show();
             return;
         }
     }
 
-    /**
-     * Clear.
-     * Set all text to null
-     *
-     * @param view the view
-     */
+    //set all text to null
     public void clear(View view) {
         name.setText("");
         email.setText("");

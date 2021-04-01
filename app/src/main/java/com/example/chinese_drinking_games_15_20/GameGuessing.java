@@ -9,30 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
 
-/**
- * The type Game guessing.
- *  The player guess the opponent's hand, by select  a picture from a gallery
- */
 public class GameGuessing extends AppCompatActivity implements View.OnClickListener, NumberPicker.OnValueChangeListener {
-    /**
-     * The Intent.
-     */
     Intent intent;
-    /**
-     * The Guess.
-     */
     int guess = 0;
-    /**
-     * The Btn next 2.
-     */
     Button btnNext2;
-    /**
-     * The Np hand.
-     */
     NumberPicker npHand;
-    /**
-     * The Guess choices.
-     */
     String[] guessChoices = {"0", "5", "10", "15", "20"};
 
     @Override
